@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROYAL CLEAN LOZNICA</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <nav class="container">
+        <div class="header-left">
+            <img src="ima1ges.jpg" alt="Logo kompanije" class="slika">
+            <a href="#hero-top" class="logo-link menu-link-style">ROYAL CLEAN</a>
+        </div>
+        
+        <ul class="main-menu">
+            <li class="menu-item"><a href="#hero-top" class="menu-link-style">POČETNA</a></li>
+            <li class="menu-item"><a href="#secondary-info-section" class="menu-link-style">O NAMA</a></li>
+            <li class="menu-item"><a href="#gallery-section" class="menu-link-style">GALERIJA</a></li>
+            <li class="menu-item"><a href="#contact-section" class="menu-link-style">KONTAKT</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-section" id="hero-top"> 
+        <div class="hero-content">
+            <h1 class="hero-title">Prljav tepih nije problem.</h1>
+            <p class="hero-subtitle">Ako znaš koga da pozoveš.</p>
+            <button id="saznajte-vise-btn" class="cta-button">SAZNAJTE VIŠE</button>
+        </div>
+    </header>
+    
+    <main class="main-content" id="main-info-section">
+        <p class="info-text">
+            **Bez nošenja, bez gubljenja vremena**
+            <br>Profesionalne mašine - dubinsko i temeljno
+            <br>**Svežina koja ostaje danima**
+            <br>Vršimo besplatno odnošenje i donošenje tepiha na teritoriji Loznice.
+        </p>
+    </main>
+    
+    <section class="secondary-info-section" id="secondary-info-section">
+        <h2 class="section-title">Zašto ROYAL CLEAN?</h2>
+        
+        <div class="info-grid">
+            <div class="grid-item">
+                <p>Uklanjamo grinje i bakterije</p>
+            </div>
+            <div class="grid-item">
+                <p>Bezbedno za decu i kućne ljubimce</p>
+            </div>
+            <div class="grid-item">
+                <p>Dugotrajan miris svežine</p>
+            </div>
+        </div>
+        
+        <p class="price-info">
+            MAŠINSKO PRANJE I SUŠENJE TEPIHA: **270 DIN/M²**
+        </p>
+    </section>
+    
+    <section class="gallery-section" id="gallery-section">
+        <div class="gallery-header-container">
+             <div class="gallery-text">
+                 <p class="section-title-left">
+                     **Istaknuti radovi**
+                 </p>
+                 <p class="section-description-left">
+                      Pregledajte neke od naših istaknutih radova.
+                 </p>
+             </div>
+        </div>
+        
+        <div class="gallery-content">
+            <h2 class="gallery-title">GALERIJA</h2>
+            
+            <div class="image-grid">
+                <img src="slika1.jpg" alt="" class="gallery-img">
+                <img src="slika2.jpg" alt="" class="gallery-img">
+                <img src="slika3.jpg" alt="" class="gallery-img">
+                <img src="slika4.jpg" alt="" class="gallery-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact-section">
+        <div class="contact-content-wrapper">
+            <h2 class="contact-title">KONTAKT</h2> 
+            <p class="contact-subtitle">Sve na jednom mestu – Royal Clean!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt contact-icon"></i> 
+                    <a href="https://maps.app.goo.gl/gW66uauTck3dFXFZ9" target="_blank" class="contact-link">Pane Đukića 2, Klupci – Loznica</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone contact-icon"></i> 
+                    <a href="tel:0658893322" class="contact-link">065/889-33-22</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-facebook contact-icon"></i> 
+                    <a href="https://www.facebook.com/p/Tepih-servis-Royal-Clean-015-61576982436202/" target="_blank" class="contact-link">Tepih servis Royal Clean 015</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-instagram contact-icon"></i> 
+                    <a href="https://www.instagram.com/royalcleanloznica?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="contact-link">royalcleanloznica</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('a[href^="#"], button#saznajte-vise-btn').forEach(element => {
+            element.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                const targetId = (href && href.length > 1 && href.startsWith('#')) ? href : '#main-info-section'; 
+                
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    
+                    if (href === '#hero-top' || href === '#') {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        const navHeight = document.querySelector('.container').offsetHeight;
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - navHeight; 
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                } else if (this.tagName === 'BUTTON' && this.id === 'saznajte-vise-btn') {
+                    e.preventDefault();
+                    const navHeight = document.querySelector('.container').offsetHeight;
+                    const targetElement = document.querySelector('#main-info-section');
+                    
+                    if (targetElement) {
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
